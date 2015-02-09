@@ -6,5 +6,6 @@ Feature: Logging in with Workshare credentials
   Scenario: Logging in
     Given I am on the homepage
     When I login
-    Then I should see "You are logged in"
+    Then I should be on the data page
+    And I should see "You are logged in"
 

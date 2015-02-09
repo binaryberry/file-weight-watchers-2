@@ -15,5 +15,7 @@ class Fileww < Sinatra::Application
         erb :index
 	end
 
-
+	post '/data' do
+		erb :data
+	end
 end
