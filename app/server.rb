@@ -1,9 +1,8 @@
-require 'sinatra'
 require 'json'
-require 'rest_client'
-require 'sinatra/partial'
 require 'rack-flash'
-require 'json'
+require 'rest_client'
+require 'sinatra'
+require 'sinatra/partial'
 
 
 class Fileww < Sinatra::Application
@@ -13,7 +12,7 @@ class Fileww < Sinatra::Application
 
 
 	get '/' do
-	  "Hello monde"
+        erb :index
 	end
 
 

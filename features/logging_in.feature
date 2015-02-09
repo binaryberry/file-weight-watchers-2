@@ -1,0 +1,10 @@
+Feature: Logging in with Workshare credentials
+  As a Workshare user
+  When I use File Weight Watchers
+  I should be able to see the the weight and gravity of my files
+
+  Scenario: Logging in
+    Given I am on the homepage
+    When I login
+    Then I should see "You are logged in"
+
