@@ -13,8 +13,8 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
-    when /the data page/
-      '/data'
+    when /the file_list page/
+      '/file_list'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

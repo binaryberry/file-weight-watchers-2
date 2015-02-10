@@ -5,6 +5,7 @@ require 'sinatra'
 require 'sinatra/partial'
 
 require_relative 'lib/user.rb'
+require_relative 'lib/file_list.rb'
 
 class Fileww < Sinatra::Application
 
@@ -16,17 +17,23 @@ class Fileww < Sinatra::Application
         erb :index
 	end
 
-	post '/data' do
+	post '/file_list' do
 		@user = User.new(params[:email], params[:password])
 		@user.login
 		response.set_cookie "workshare_cookie", "#{@user.my_cookie}"
 		session[:email] = @user.email
 		session[:password] = @user.password
-	    redirect to '/data'
+	    redirect to '/file_list'
 	end
 
-	get '/data' do
-		erb :data
+	get '/file_list' do
+		@user = User.new(session[:email], session[:password])
+		@user.login
+		# my_cookie = eval(request.cookies["workshare_cookie"])
+		# files_metadata = @user.listfiles(my_cookie)
+		# @file_list = FileList.new(files_metadata)
+		# @file_list.total_weight
+		erb :file_list
 	end
 
 end
