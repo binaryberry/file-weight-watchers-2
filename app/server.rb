@@ -29,10 +29,9 @@ class Fileww < Sinatra::Application
 	get '/file_list' do
 		@user = User.new(session[:email], session[:password])
 		@user.login
-		# my_cookie = eval(request.cookies["workshare_cookie"])
-		# files_metadata = @user.listfiles(my_cookie)
-		# @file_list = FileList.new(files_metadata)
-		# @file_list.total_weight
+		my_cookie = eval(request.cookies["workshare_cookie"])
+		files_metadata = @user.listfiles(my_cookie)
+		@file_list = FileList.new(files_metadata)
 		erb :file_list
 	end
 

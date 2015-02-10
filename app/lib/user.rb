@@ -18,7 +18,8 @@ class User
 	end
 
 	def listfiles(my_cookie)
-		@files_metadata = RestClient.get WORKSHARE_FILES_DATA_API_URL, {cookies: my_cookie}		
+		files_metadata_string = RestClient.get WORKSHARE_FILES_DATA_API_URL, {cookies: my_cookie}
+		@files_metadata	= JSON.parse(files_metadata_string)	
 	end
 
 
