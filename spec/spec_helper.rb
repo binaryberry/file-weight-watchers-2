@@ -3,7 +3,6 @@ ENV["RACK_ENV"] = 'test'
 
 require './app/server'
 require 'capybara/rspec'
-# require 'capybara/cucumber'
 
 Capybara.app = Sinatra::Application
 
