@@ -14,7 +14,7 @@ describe 'file_list' do
   end
 
   it 'should know the total weight of the files' do
-    expect(@file_list.total_weight).to eq 810.653 
+    expect(@file_list.total_weight).to eq "810.653"
   end
 
   it 'should know the number of files for text files' do
@@ -22,7 +22,7 @@ describe 'file_list' do
   end
 
   it 'should know the weight of files for text files' do
-    expect(@file_list.weight_per_category["text_files"]).to eq 44.635
+    expect(@file_list.weight_per_category["text_files"]).to eq "44.635"
   end
 
 end

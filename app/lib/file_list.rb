@@ -22,8 +22,12 @@ class FileList
 	end
 
 	def format number_in_bytes
-		number_in_bytes.to_s.reverse.gsub(/.{3}(?=.)/, '\0 ').reverse
-		number_in_MB = number_in_bytes.to_f/1000
+		before_comma_numbers = number_in_bytes/1000
+		spaced_before_comma_numbers_string = before_comma_numbers.to_s.reverse.gsub(/.{3}(?=.)/, '\0 ').reverse
+		after_comma_numbers = number_in_bytes.to_f%1000/1000
+		after_comma_numbers_string = after_comma_numbers.to_s
+		after_comma_numbers_string[0]=''
+		number_in_MB = spaced_before_comma_numbers_string + after_comma_numbers_string
 	end
 
 	def get_category_data
