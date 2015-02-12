@@ -18,11 +18,12 @@ class FileList
 		@files_metadata["files"].each do |file_metadata|
 			@files_weight += file_metadata["size"]
 		end
-		@files_weight = add_spacing(@files_weight)
+		@files_weight = format(@files_weight)
 	end
 
-	def add_spacing number
-		number.to_s.reverse.gsub(/.{3}(?=.)/, '\0 ').reverse
+	def format number_in_bytes
+		number_in_bytes.to_s.reverse.gsub(/.{3}(?=.)/, '\0 ').reverse
+		number_in_MB = number_in_bytes.to_f/1000
 	end
 
 	def get_category_data
@@ -46,7 +47,7 @@ class FileList
 			weight += file_metadata["size"] * @gravities["#{category}"] if @extensions["#{category}"].include?(file_metadata["extension"]) 
 			weight += 100 if "#{category}" == "text_files"
 		end
-		@weight_per_category["#{category}"] = weight
+		@weight_per_category["#{category}"] = format(weight)
 	end
 
 end

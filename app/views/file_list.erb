@@ -1,9 +1,17 @@
 <h6>You are logged in as <%= @user.email %> </h6>
 
+<table style="width:100%">
+  <tr>
+    <th>File Type</th>
+    <th>Number of Files</th> 
+    <th>Weight (in MB)</th>
+  </tr>
+  <tr>
+    <td>Text</td>
+    <td><%=@file_list.files_per_category["text_files"]%></td> 
+    <td><%=@file_list.weight_per_category["text_files"]%></td>
+  </tr>
+</table>
 
 
- <h3>Text files number <%=@file_list.files_per_category["text_files"]%> </h3>
- <h3>Text weight number <%=@file_list.weight_per_category["text_files"]%> </h3>
-
-
-<h1>The total weight of your files is <%= @file_list.total_weight %> bytes </h1>
+<h1>The total weight of your files is <%= @file_list.total_weight %> MB </h1>
