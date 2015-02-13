@@ -6,11 +6,11 @@ class FileList
 	def initialize(metadata)
 		@files_metadata = metadata
 		@files_weight = 0
-		@categories = ["text_files"]
-		@extensions = {"text_files" => ["jpg"]}
+		@categories = ["text_files", "video_files", "song_files", "document_files", "binary_files", "other_files"]
+		@extensions = {"text_files" => ["txt"], "video_files" => ["avi", "mp4", "mov"], "song_files" => ["mp3"], "document_files" => ["doc", "xls", "ppt", "docx", "xlsx", "pptx"], "binary_files" =>["bin"], "other_files" => []}
 		@files_per_category = {}
 		@weight_per_category = {}
-		@gravities = {"text_files" => 1}
+		@gravities = {"text_files" => 1, "video_files" => 1.4, "song_files"=> 1.2, "document_files"=> 1.1, "binary_files"=> 1, "other_files" => 1}
 		get_category_data
 	end
 
@@ -22,36 +22,39 @@ class FileList
 	end
 
 	def format number_in_bytes
-		before_comma_numbers = number_in_bytes/1000
-		spaced_before_comma_numbers_string = before_comma_numbers.to_s.reverse.gsub(/.{3}(?=.)/, '\0 ').reverse
-		after_comma_numbers = number_in_bytes.to_f%1000/1000
-		after_comma_numbers_string = after_comma_numbers.to_s
-		after_comma_numbers_string[0]=''
-		number_in_MB = spaced_before_comma_numbers_string + after_comma_numbers_string
+		number_in_bytes/1000.0
 	end
 
 	def get_category_data
 		@categories.each do |category|
-			get_file_number(category)
+			get_category_file_number(category)
 			get_category_weight(category)
 		end
 	end
 
-	def get_file_number(category)
+	def get_category_file_number(category)
 		number = 0
 		@files_metadata["files"].each do |file_metadata|
-			number +=1 if @extensions["#{category}"].include?(file_metadata["extension"]) 
+			if @extensions[category].include?(file_metadata["extension"]) 
+				number +=1
+			elsif category == "other_files" && @extensions.values.flatten.include?(file_metadata["extension"]) == false
+				number +=1
+			end
 		end
-		files_per_category["#{category}"] = number
+		files_per_category[category] = number
 	end
 
 	def get_category_weight(category)
 		weight = 0
 		@files_metadata["files"].each do |file_metadata|
-			weight += file_metadata["size"] * @gravities["#{category}"] if @extensions["#{category}"].include?(file_metadata["extension"]) 
-			weight += 100 if "#{category}" == "text_files"
+			if @extensions[category].include?(file_metadata["extension"]) 
+				weight += file_metadata["size"] * @gravities[category]
+				weight += 100 if category == "text_files"
+			elsif category == "other_files" && @extensions.values.flatten.include?(file_metadata["extension"]) == false
+				weight += file_metadata["size"] * @gravities[category] 
+			end
 		end
-		@weight_per_category["#{category}"] = format(weight)
+		@weight_per_category[category] = format(weight)
 	end
 
 end
