@@ -1,7 +1,7 @@
 require 'pry'
 class FileList
 
-	attr_accessor :files_metadata, :files_weight, :files_per_category, :weight_per_category
+	attr_accessor :files_metadata, :files_weight, :files_per_category, :weight_per_category, :displacement
 
 	def initialize(metadata)
 		@files_metadata = metadata
@@ -19,6 +19,15 @@ class FileList
 			@files_weight += file_metadata["size"]
 		end
 		@files_weight = format(@files_weight)
+	end
+
+	def gravity_displacement
+		# binding.pry
+		files_weight_with_gravity = 0
+		@categories.each do |category|
+			files_weight_with_gravity += @weight_per_category[category]	
+		end
+		@displacement = files_weight_with_gravity - @files_weight
 	end
 
 	def format number_in_bytes

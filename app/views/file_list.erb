@@ -1,5 +1,3 @@
-<h6>You are logged in as <%= @user.email %> </h6>
-
 <table style="width:100%">
   <tr>
     <th>File Type</th>
@@ -7,11 +5,37 @@
     <th>Weight (in MB)</th>
   </tr>
   <tr>
+    <td>Videos</td>
+    <td><%=@file_list.files_per_category["video_files"]%></td> 
+    <td><%=@file_list.weight_per_category["video_files"]%></td>
+  </tr>
+  <tr>
+    <td>Songs</td>
+    <td><%=@file_list.files_per_category["song_files"]%></td> 
+    <td><%=@file_list.weight_per_category["song_files"]%></td>
+  </tr>
+  <tr>
+    <td>Documents</td>
+    <td><%=@file_list.files_per_category["document_files"]%></td> 
+    <td><%=@file_list.weight_per_category["document_files"]%></td>
+  </tr>
+  <tr>
+    <td>Binary</td>
+    <td><%=@file_list.files_per_category["binary_files"]%></td> 
+    <td><%=@file_list.weight_per_category["binary_files"]%></td>
+  </tr>
+  <tr>
     <td>Text</td>
     <td><%=@file_list.files_per_category["text_files"]%></td> 
     <td><%=@file_list.weight_per_category["text_files"]%></td>
+  </tr>
+  <tr>
+    <td>Others</td>
+    <td><%=@file_list.files_per_category["other_files"]%></td> 
+    <td><%=@file_list.weight_per_category["other_files"]%></td>
   </tr>
 </table>
 
 
 <h1>The total weight of your files is <%= @file_list.total_weight %> MB </h1>
+<p> Add. gravity <%= @file_list.gravity_displacement %> </p>

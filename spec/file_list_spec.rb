@@ -19,6 +19,9 @@ describe 'file_list' do
       expect(@file_list.total_weight).to eq 279576.5
     end
 
+    it "should know the gravity displacement of the files" do
+      expect(@file_list.gravity_displacement).to eq 391157.5538
+    end  
   end
 
   context "text files" do
