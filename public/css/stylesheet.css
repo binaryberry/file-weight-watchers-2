@@ -66,6 +66,7 @@ table {
   text-align: center;
   margin:0px auto;
   text-align: middle;
+  width: 50%;
 }
 
 td:nth-of-type(3n-2) {
