@@ -11,7 +11,7 @@ class Fileww < Sinatra::Application
 
 	enable :sessions
 	set :session_secret, 'super secret'
-	set :public_folder, '../public'
+	set :public_folder, '../public/css/'
 
 	get '/' do
         erb :index
