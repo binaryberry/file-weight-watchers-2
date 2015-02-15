@@ -11,7 +11,7 @@ class Fileww < Sinatra::Application
 
 	enable :sessions
 	set :session_secret, 'super secret'
-	set :public_folder, File.join(File.dirname(__FILE__), '..', 'public')
+	set :public_folder, '../public'
 
 	get '/' do
         erb :index
@@ -34,5 +34,4 @@ class Fileww < Sinatra::Application
 		@file_list = FileList.new(files_metadata)
 		erb :file_list
 	end
-
 end
