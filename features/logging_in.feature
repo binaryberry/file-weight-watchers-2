@@ -14,4 +14,3 @@ Feature: Logging in with Workshare credentials
     When I login
     Then I should be on the file_list page
     And I should see the weight of my files
-

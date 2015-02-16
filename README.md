@@ -1,5 +1,7 @@
-# file-weight-watchers-2
+# The File Weight Watchers
 An app allowing to display the weight and gravity of files stored on a cloud computing platform. Available online [here](https://the-file-weight-watchers.herokuapp.com) on Heroku.
+
+![SCREENSHOT](https://github.com/binaryberry/file-weight-watchers-2/blob/master/public/images/screenshot.jpg)
 
 ##How does it work?
 
@@ -12,7 +14,9 @@ This metadata is then processed by the file_list class, which calculates for eac
 
 ##What technologies did I use?
 
-In Ruby, using the Sinatra DSL. It was (light) BDD-ed using cucumber and capybara and TDD-ed using Rspec, then I added some CSS and pushed it to Heroku. For debugging binding.pry was of great help, and rest-client facilitated the API calls.
+In Ruby, using the Sinatra DSL. It was BDD-ed using cucumber and capybara and TDD-ed using Rspec. Front end is CSS, and the app is deployed to Heroku. 
+
+For debugging binding.pry was of great help, and the rest-client gem facilitated the API calls.
 
 ##What did I learn?
 

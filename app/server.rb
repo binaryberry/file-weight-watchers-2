@@ -1,5 +1,4 @@
 require 'json'
-require 'rack-flash'
 require 'rest_client'
 require 'sinatra'
 require 'sinatra/partial'
@@ -10,8 +9,8 @@ require_relative 'lib/file_list.rb'
 class Fileww < Sinatra::Application
 
     enable :sessions
-    set :session_secret, 'super secret'
-    set :public_folder, File.join(File.dirname(__FILE__), '..', 'public')       
+    set :session_secret, '123454678'
+    set :public_folder, File.join(File.dirname(__FILE__), '..', 'public') 
     
     get '/' do
         erb :index
