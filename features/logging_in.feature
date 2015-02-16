@@ -10,6 +10,8 @@ Feature: Logging in with Workshare credentials
     And I should see "You are logged in"
 
   Scenario: Seeing the data of my files
-    Given I am on the file_list page
-    Then I should see the weight of my files
+    Given I am on the homepage
+    When I login
+    Then I should be on the file_list page
+    And I should see the weight of my files
 

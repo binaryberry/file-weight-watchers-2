@@ -16,21 +16,22 @@ describe 'file_list' do
     end
 
     it 'should know the total weight of the files' do
-      expect(@file_list.total_weight).to eq 279576.5
+      expect(@file_list.total_weight).to eq 391.15
     end
 
     it "should know the gravity displacement of the files" do
-      expect(@file_list.gravity_displacement).to eq 391157.5538
+      expect(@file_list.gravity_displacement).to eq 111.57
     end  
+
   end
 
   context "text files" do
     it 'should know the number of files for text files' do
-      expect(@file_list.files_per_category["text_files"]).to eq 2
+      expect(@file_list.data_per_category["text_files"]["file_number"]).to eq 2
     end
 
     it 'should know the weight of files for text files' do
-      expect(@file_list.weight_per_category["text_files"]).to eq 11.317
+      expect(@file_list.data_per_category["text_files"]["files_weight"]).to eq 0.01
     end
 
   end
@@ -38,11 +39,11 @@ describe 'file_list' do
   context "video files" do
 
     it 'should know the number of files for video files' do
-      expect(@file_list.files_per_category["video_files"]).to eq 2
+      expect(@file_list.data_per_category["video_files"]["file_number"]).to eq 2
     end
 
     it 'should know the weight of files for video files' do
-      expect(@file_list.weight_per_category["video_files"]).to eq 390272.0122
+      expect(@file_list.data_per_category["video_files"]["files_weight"]).to eq 390.27
     end
 
   end
@@ -50,11 +51,11 @@ describe 'file_list' do
   context "song files" do
 
     it 'should know the number of files for song files' do
-      expect(@file_list.files_per_category["song_files"]).to eq 3
+      expect(@file_list.data_per_category["song_files"]["file_number"]).to eq 3
     end
 
     it 'should know the weight of files for song files' do
-      expect(@file_list.weight_per_category["song_files"]).to eq 0.0384
+      expect(@file_list.data_per_category["song_files"]["files_weight"]).to eq 0.0
     end
 
   end
@@ -62,11 +63,11 @@ describe 'file_list' do
   context "binary files" do
 
     it 'should know the number of files for binary files' do
-      expect(@file_list.files_per_category["binary_files"]).to eq 2
+      expect(@file_list.data_per_category["binary_files"]["file_number"]).to eq 2
     end
 
     it 'should know the weight of files for binary files' do
-      expect(@file_list.weight_per_category["binary_files"]).to eq 0.049
+      expect(@file_list.data_per_category["binary_files"]["files_weight"]).to eq 0.0
     end
 
   end
@@ -74,11 +75,11 @@ describe 'file_list' do
   context "document files" do
 
     it 'should know the number of files for document files' do
-      expect(@file_list.files_per_category["document_files"]).to eq 2
+      expect(@file_list.data_per_category["document_files"]["file_number"]).to eq 2
     end
 
     it 'should know the weight of files for document files' do
-      expect(@file_list.weight_per_category["document_files"]).to eq 820.1402
+      expect(@file_list.data_per_category["document_files"]["files_weight"]).to eq 0.82
     end
 
   end
@@ -86,14 +87,13 @@ describe 'file_list' do
   context "other files" do
 
     it 'should know the number of files for other files' do
-      expect(@file_list.files_per_category["other_files"]).to eq 2
+      expect(@file_list.data_per_category["other_files"]["file_number"]).to eq 2
     end
 
     it 'should know the weight of files for other files' do
-      expect(@file_list.weight_per_category["other_files"]).to eq 53.997
+      expect(@file_list.data_per_category["other_files"]["files_weight"]).to eq 0.05
     end
 
   end
-
 
 end

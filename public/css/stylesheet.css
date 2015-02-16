@@ -75,7 +75,7 @@ td:nth-of-type(3n-2) {
     border-radius: 10px;
     margin: 10px;
     padding: 0.8em;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 td:nth-of-type(3n-1) {
@@ -83,7 +83,7 @@ td:nth-of-type(3n-1) {
     border-radius: 10px;
     margin: 10px;
     color:#1A7EBE;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 td:nth-of-type(3n) {
@@ -91,7 +91,7 @@ td:nth-of-type(3n) {
     border-radius: 10px;
     margin: 10px;
     color:#1A7EBE;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 th {
@@ -100,5 +100,5 @@ th {
     border-radius: 10px;
     margin: 10px;
     padding: 0.8em;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
