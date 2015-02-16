@@ -14,13 +14,13 @@ This metadata is then processed by the file_list class, which calculates for eac
 
 ##What technologies did I use?
 
-In Ruby, using the Sinatra DSL. It was BDD-ed using cucumber and capybara and TDD-ed using Rspec. Front end is CSS, and the app is deployed to Heroku. 
+Mostly Ruby, using the Sinatra DSL. The app was BDD-ed using Cucumber and Capybara and TDD-ed using Rspec. I also used some CSS, and the app is deployed to Heroku. 
 
 For debugging binding.pry was of great help, and the rest-client gem facilitated the API calls.
 
 ##What did I learn?
 
-I learned how to get an authentication token through an API call, and how to save that token in the cookies. I also learned how to require that token from the cookies to make an API call that requires authentication.
+I learned how to get an authentication token through an API call, how to save that token in the cookies, and then use it to make an API call that requires authentication.
 
 I learned how to parse and process a large metadata file, extracting only the information I needed.
 
