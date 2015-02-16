@@ -1,7 +1,7 @@
 # The File Weight Watchers
 An app allowing to display the weight and gravity of files stored on a cloud computing platform. Available online [here](https://the-file-weight-watchers.herokuapp.com) on Heroku.
 
-![SCREENSHOT](https://github.com/binaryberry/file-weight-watchers-2/blob/master/public/images/screenshot.jpg)
+![SCREENSHOT](https://github.com/binaryberry/file-weight-watchers-2/blob/master/public/images/screenshot.png)
 
 ##How does it work?
 
