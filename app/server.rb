@@ -11,8 +11,8 @@ class Fileww < Sinatra::Application
 
 	enable :sessions
 	set :session_secret, 'super secret'
-	set :public_folder, '../public'
-		
+	set :public_folder, File.join(File.dirname(__FILE__), '..', 'public')		
+	
 	get '/' do
         erb :index
 	end
