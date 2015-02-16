@@ -7,6 +7,7 @@ class FileList
 		@files_metadata = metadata
 		@data_per_category = {}
 		@categories = {"text_files" => {"extensions" => ["txt"], "gravities" => 1},"video_files" => {"extensions" => ["avi", "mp4", "mov"], "gravities" => 1.4}, "song_files" => {"extensions" => ["mp3"], "gravities" => 1.2},"document_files" => {"extensions" => ["doc", "xls", "ppt", "docx", "xlsx", "pptx"], "gravities" => 1.1},"binary_files" => {"extensions" => ["bin"], "gravities" => 1},"other_files" => {"extensions" => [], "gravities" => 1}}
+		list_main_extensions
 		get_data
 	end
 
@@ -19,7 +20,6 @@ class FileList
 	def get_category_data(category)
 		@number = 0
 		@weight = 0
-		list_main_extensions
 		@files_metadata["files"].each do |file_metadata|
 			add_file(file_metadata, category) if @categories[category]["extensions"].include?(file_metadata["extension"]) || (category == "other_files" && @main_extensions.include?(file_metadata["extension"]) == false)
 		end
